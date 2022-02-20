@@ -1,11 +1,18 @@
 
 var http = require('http');
-var fs = require('fs');
 
 var server = http.createServer(handleRequest);
 
 function handleRequest(req,res){
-    res.setHeader
+     var store ="" ;
+     req.on('data', (chunk) => {
+         store += chunk;
+     });
+
+     req.on('end',() =>{
+         res.write(store);
+         res.end();
+     })
 
 }
 
