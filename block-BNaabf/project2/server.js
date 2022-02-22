@@ -28,5 +28,5 @@ function handleRequest(req,res){
 }
 
 server.listen(5678,()=>{
-    console.log('server is listening on port 5678')
+    console.log('listening on port 5678')
 })
