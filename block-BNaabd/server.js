@@ -9,9 +9,15 @@ function handleRequest (req,res){
         store = store + chunk;
     })
     req.on('end',()=>{
-        if(dateFormat === 'application/JSON'){
-            var parseDate = JSON.parse(store);
+        if(req.method === 'POST' && req.url === 'json'){
+            console.log(store)
+            res.setHeader('Content-Type', "application/json")
             res.end(store);
+        }
+        if(req.method === 'POST' && req.url === '/form'){
+            console.log(store);
+            var formData = qs.parse(store);
+            res.end(JSON.stringify(formData));
         }
     })
 
