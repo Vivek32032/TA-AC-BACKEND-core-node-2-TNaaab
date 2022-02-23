@@ -7,7 +7,7 @@ var server = http.createServer(handleRequest);
 
 function handleRequest(req,res){
     var store = '';
-    req.on('data', (chunk){
+    req.on('data', (chunk)=>{
         store += chunk;
     })
     req.on('end',()=>{
